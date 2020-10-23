@@ -1,2 +1,11 @@
-euler: main.c euler.c
-	gcc -o euler main.c euler.c -I.
+all: main.o euler.o
+	gcc -o euler main.o euler.o
+
+main.o : main.c euler.h
+	gcc -c main.c
+
+euler.o: euler.c
+	gcc -c euler.c
+		
+run: euler
+	./euler
